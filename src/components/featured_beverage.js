@@ -31,7 +31,7 @@ const FeaturedBeverage = (props) => {
         return null;
     }else{
         props.productItemId(props.beverages.id);
-        props.componentWillMount();        
+        //props.componentWillMount();        
     }
 
     
