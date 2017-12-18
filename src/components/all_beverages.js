@@ -1,8 +1,9 @@
 import React from 'react';
+import Async from 'react-promise';
 
 const AllBeverages = (props) => {
+ 
     let beverageList = props.beverages;
-    console.log(props);
 
     const beverageListItem = beverageList.map((beverage, index) => {
         let beverageTag = beverage.tags;
@@ -16,12 +17,14 @@ const AllBeverages = (props) => {
         if(beverage.name==="Lug Thread"){
             return null;
         }else{
+
             return (
-                <div onClick={() => {
-                    props.onBeverageSelect(beverage)
-                    props.componentWillMount()
-                    }
-                } 
+                <div onClick={(event) => { 
+                    props.onBeverageSelect(beverage); 
+                    props.componentWillUnmount(beverage);
+                }
+            }                   
+                
                 key={index} 
                 className="beverage-item">
                     <a href="#featured-beverage"><img src={beverageImage} alt={beverage.name} height="80%" width="80%" />

@@ -24,7 +24,7 @@ class App extends Component {
             stores: []
         };
         
-        this.componentWillMount = this.componentWillMount.bind(this);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
     }
 
     componentDidMount() {
@@ -57,11 +57,14 @@ class App extends Component {
         })
     }
 
-    componentWillMount() {
+    componentWillUnmount(beverage) {
+        console.log(beverage);
         if (product_id === undefined){
+            //console.log(product_id);
             return true;
         }
         else{
+            console.log(product_id);
             this.setState({stores:product_id.data.result})
         }
     }
@@ -78,7 +81,7 @@ class App extends Component {
                 <AllBeverages 
                     onBeverageSelect={(selectedBeverage) => this.setState({selectedBeverage})}
                     beverages={this.state.beverages} 
-                    componentWillMount={this.componentWillMount}
+                    componentWillUnmount={this.componentWillUnmount}
                 />
                 
             </div>
