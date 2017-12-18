@@ -4,8 +4,7 @@ const FeaturedBeverage = (props) => {
 
     let selectedBeverage = props.beverages;
     let selectedBeverageDescription = selectedBeverage.description;
-    let beverageImage = selectedBeverage.image_url;
-        
+    let beverageImage = selectedBeverage.image_url;        
 
     if(selectedBeverageDescription === null) {
         selectedBeverageDescription = "This Beverage is Getting No Description From the API";
@@ -26,7 +25,16 @@ const FeaturedBeverage = (props) => {
         }
     );
 
-    console.log(selectedBeverage.id)
+
+
+    if(props.beverages.id===undefined || props.productItemId===undefined){
+        return null;
+    }else{
+        props.productItemId(props.beverages.id);
+        props.componentWillMount();        
+    }
+
+    
 
     return(
         <div className="featured-beverage" id="featured-beverage">
@@ -41,7 +49,7 @@ const FeaturedBeverage = (props) => {
             </div>
         </div>
     );
-    
+
 }
 
 export default FeaturedBeverage;
