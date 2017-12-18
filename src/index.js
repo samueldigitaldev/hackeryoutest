@@ -48,7 +48,6 @@ class App extends Component {
         .then(response => {
             this.setState({stores:response.data.result})
         })
-
     };
 
     product_id(productId) {
@@ -63,12 +62,9 @@ class App extends Component {
             return true;
         }
         else{
-            //console.log(product_id.data.result);
             this.setState({stores:product_id.data.result})
-            return true;
         }
     }
-
     
     render() {
         return (
@@ -77,13 +73,12 @@ class App extends Component {
                     beverages={this.state.selectedBeverage} 
                     stores={this.state.stores}
                     productItemId={this.product_id}
-                    componentWillMount={this.componentWillMount}
-
                 
                 />
                 <AllBeverages 
                     onBeverageSelect={(selectedBeverage) => this.setState({selectedBeverage})}
                     beverages={this.state.beverages} 
+                    componentWillMount={this.componentWillMount}
                 />
                 
             </div>
@@ -92,10 +87,3 @@ class App extends Component {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
-
-    // componentDidMount() {
-    //     axios.get(`https://lcboapi.com/stores?&per_page=5&page=1&where_not=is_dead&geo=toronto&product_id=${this.state.product_id}&access_key=${API_KEY}`)
-    //     .then(response => {
-    //         this.setState({stores:response.data.result})
-    //     })
-    // }

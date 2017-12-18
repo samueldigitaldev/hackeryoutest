@@ -25,17 +25,12 @@ const FeaturedBeverage = (props) => {
         }
     );
 
-
-
     if(props.beverages.id===undefined || props.productItemId===undefined){
         return null;
     }else{
         props.productItemId(props.beverages.id);
-        //props.componentWillMount();        
     }
-
-    
-
+            
     return(
         <div className="featured-beverage" id="featured-beverage">
             <div className="featured-beverage-image">

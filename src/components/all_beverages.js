@@ -2,6 +2,7 @@ import React from 'react';
 
 const AllBeverages = (props) => {
     let beverageList = props.beverages;
+    console.log(props);
 
     const beverageListItem = beverageList.map((beverage, index) => {
         let beverageTag = beverage.tags;
@@ -18,7 +19,7 @@ const AllBeverages = (props) => {
             return (
                 <div onClick={() => {
                     props.onBeverageSelect(beverage)
-                    
+                    props.componentWillMount()
                     }
                 } 
                 key={index} 
