@@ -169,31 +169,19 @@ header img{
     /* align-self: center; */
     background-color: #A9B9BB;
 }
-
 .featured-beverage-name{
     font-size: 2.5rem;
     font-family: 'Abril Fatface', cursive, Arial;
     margin: 20px 0px;
 }
 
-.featured-beverage-package{
+.featured-beverage-description{
     font-size: 2rem;
     margin: 20px 0px;
 }
 
-.featured-beverage-price{
+.featured-beverage-stores{
     margin: 20px 0px;
-    font-size: 1.5em;
-}
-
-.featured-beverage-origin{
-    margin: 20px 0px;
-    font-size: 1.25em;
-}
-
-.featured-beverage-producer{
-    margin: 20px 0px;
-    font-size: 1.25em;
 }
 
 .featured-beverage-tags{
@@ -244,20 +232,12 @@ footer div{
         font-size: 2.0rem;
     }
     
-    .featured-beverage-package{
+    .featured-beverage-description{
         font-size: 1.5rem;
     }
-
-    .featured-beverage-price{
-        font-size: 1.25rem;
-    }
-
-    .featured-beverage-origin{
-        font-size: 1.25rem;
-    }
-
-    .featured-beverage-producer{
-        font-size: 1.25rem;
+    
+    .featured-beverage-stores{
+        font-size: 1rem;
     }
     
     .featured-beverage-tags{
@@ -301,27 +281,20 @@ footer div{
     }
 
     .featured-beverage-name{
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
     
-    .featured-beverage-package{
-        font-size: 1.0em;
+    .featured-beverage-description{
+        font-size: 1.0rem;
     }
+    
+    .featured-beverage-stores{
+        font-size: 0.45rem;
 
-    .featured-beverage-price{
-        font-size: 1.0em;
-    }
-
-    .featured-beverage-origin{
-        font-size: 0.75em;
-    }
-
-    .featured-beverage-producer{
-        font-size: 0.75em;
     }
     
     .featured-beverage-tags{
-        font-size: 0.45em;
+        font-size: 0.45rem;
         line-height: 1.5;
     }
     
@@ -361,10 +334,13 @@ footer div{
         font-size: 1.5rem;
     }
     
-    .featured-beverage-package{
+    .featured-beverage-description{
         font-size: 1.0rem;
     }
     
+    .featured-beverage-stores{
+        font-size: 0.45rem;
+    }
     
     .featured-beverage-tags{
         font-size: 0.45rem;

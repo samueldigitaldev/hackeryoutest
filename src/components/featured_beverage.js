@@ -3,26 +3,33 @@ import React from 'react';
 const FeaturedBeverage = (props) => {
 
     let selectedBeverage = props.beverages;
-    //let selectedBeverageDescription = selectedBeverage.description;
+    let selectedBeverageDescription = selectedBeverage.description;
     let beverageImage = selectedBeverage.image_url;        
 
-    // if(selectedBeverageDescription === null) {
-    //     selectedBeverageDescription = "This Beverage is Getting No Description From the API";
-    // }
+    if(selectedBeverageDescription === null) {
+        selectedBeverageDescription = "This Beverage is Getting No Description From the API";
+    }
     
-    // if (beverageImage === null) {
-    //     beverageImage = 'https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg';
-    // }
-
-    function centsToDollars(cents) {
-        return cents/100;
+    if (beverageImage === null) {
+        beverageImage = 'https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg';
     }
     
     if (selectedBeverage === undefined){
         return null;
     }
 
-    console.log(props);
+    const storeAddress = props.stores.map((store, index) => {
+            return(
+                <div>{store.address_line_1} {store.address_line_2}</div>
+            ) 
+        }
+    );
+
+    if(props.beverages.id===undefined || props.productItemId===undefined){
+        return null;
+    }else{
+        props.productItemId(props.beverages.id);
+    }
             
     return(
         <div className="featured-beverage" id="featured-beverage">
@@ -31,10 +38,8 @@ const FeaturedBeverage = (props) => {
             </div>
             <div className ="featured-beverage-info">
                 <div className="featured-beverage-name">{selectedBeverage.name}</div>
-                <div className="featured-beverage-package">{selectedBeverage.package}</div>
-                <div className="featured-beverage-price">Price: ${centsToDollars(selectedBeverage.price_in_cents)}</div>
-                <div className="featured-beverage-origin">Beverage Origin: {selectedBeverage.origin} </div>
-                <div className="featured-beverage-producer">Producer: {selectedBeverage.producer_name} </div>
+                <div className="featured-beverage-description">{selectedBeverageDescription}</div>
+                <div className="featured-beverage-stores">Locations: {storeAddress}</div>
                 <div className="featured-beverage-tags">Tags: {selectedBeverage.tags}</div>
             </div>
         </div>
