@@ -1,5 +1,4 @@
 import React from 'react';
-import Async from 'react-promise';
 
 const AllBeverages = (props) => {
  
@@ -12,7 +11,8 @@ const AllBeverages = (props) => {
             return null;    
         }
         if (beverageImage === null) {
-            beverageImage = 'https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg';
+            //beverageImage = 'https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg';
+            return null;
          }           
         if(beverage.name==="Lug Thread"){
             return null;
@@ -21,10 +21,8 @@ const AllBeverages = (props) => {
             return (
                 <div onClick={(event) => { 
                     props.onBeverageSelect(beverage); 
-                    props.componentWillUnmount(beverage);
                 }
             }                   
-                
                 key={index} 
                 className="beverage-item">
                     <a href="#featured-beverage"><img src={beverageImage} alt={beverage.name} height="80%" width="80%" />

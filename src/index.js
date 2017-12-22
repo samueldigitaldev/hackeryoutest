@@ -20,11 +20,8 @@ class App extends Component {
         this.state = {
             beverages: [],
             selectedBeverage: {},
-            product_id: "",
-            stores: []
+            product_id: ""
         };
-        
-        this.componentWillUnmount = this.componentWillUnmount.bind(this);
     }
 
     componentDidMount() {
@@ -41,32 +38,10 @@ class App extends Component {
                     beverageArray.push(list);
                     this.setState({selectedBeverage:beverageArray[0]});
                     this.setState({product_id:beverageArray[0].id})
+                    
                 }
             });
         })
-        axios.get(`https://lcboapi.com/stores?&per_page=5&page=1&where_not=is_dead&geo=toronto&product_id=${this.state.product_id}&access_key=${API_KEY}`)
-        .then(response => {
-            this.setState({stores:response.data.result})
-        })
-    };
-
-    product_id(productId) {
-        axios.get(`https://lcboapi.com/stores?&per_page=5&page=1&where_not=is_dead&geo=toronto&product_id=${productId}&access_key=${API_KEY}`)
-        .then(response => {
-            product_id = response;
-        })
-    }
-
-    componentWillUnmount(beverage) {
-        console.log(beverage);
-        if (product_id === undefined){
-            //console.log(product_id);
-            return true;
-        }
-        else{
-            console.log(product_id);
-            this.setState({stores:product_id.data.result})
-        }
     }
     
     render() {
@@ -81,7 +56,6 @@ class App extends Component {
                 <AllBeverages 
                     onBeverageSelect={(selectedBeverage) => this.setState({selectedBeverage})}
                     beverages={this.state.beverages} 
-                    componentWillUnmount={this.componentWillUnmount}
                 />
                 
             </div>
